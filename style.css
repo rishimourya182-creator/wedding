@@ -1,0 +1,187 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#0f0f0f;
+color:#fff;
+overflow-x:hidden;
+}
+
+#loader{
+position:fixed;
+width:100%;
+height:100%;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:2rem;
+z-index:9999;
+color:#D4AF37;
+font-family:'Cinzel',serif;
+animation:fadeOut 3s forwards;
+}
+
+@keyframes fadeOut{
+0%{opacity:1;}
+80%{opacity:1;}
+100%{opacity:0;visibility:hidden;}
+}
+
+.hero{
+height:100vh;
+background:url("images/bg.jpg") center/cover no-repeat;
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.6);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+padding:20px;
+}
+
+.hero h1{
+font-size:4rem;
+font-family:'Cinzel',serif;
+color:#D4AF37;
+margin-bottom:20px;
+}
+
+.hero h3{
+font-size:2rem;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:1.2rem;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+background:#D4AF37;
+color:#000;
+text-decoration:none;
+border-radius:40px;
+font-weight:bold;
+transition:.4s;
+}
+
+.btn:hover{
+background:#fff;
+transform:scale(1.08);
+}
+
+section{
+padding:80px 10%;
+text-align:center;
+}
+
+section h2{
+font-size:2.5rem;
+margin-bottom:40px;
+color:#D4AF37;
+font-family:'Cinzel',serif;
+}
+
+#timer{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+}
+
+#timer div{
+background:#1c1c1c;
+padding:25px;
+border-radius:15px;
+width:120px;
+box-shadow:0 0 20px rgba(212,175,55,.3);
+}
+
+#timer span{
+font-size:2.5rem;
+color:#D4AF37;
+font-weight:bold;
+}
+
+.timeline{
+background:#111;
+}
+
+.event{
+max-width:700px;
+margin:25px auto;
+padding:25px;
+background:#1a1a1a;
+border-left:5px solid #D4AF37;
+border-radius:12px;
+transition:.4s;
+}
+
+.event:hover{
+transform:translateY(-8px);
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery-grid img{
+width:100%;
+height:300px;
+object-fit:cover;
+border-radius:15px;
+transition:.4s;
+}
+
+.gallery-grid img:hover{
+transform:scale(1.05);
+}
+
+.family-box{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.family-box div{
+background:#1a1a1a;
+padding:30px;
+border-radius:15px;
+width:320px;
+}
+
+.venue{
+background:#151515;
+}
+
+.rsvp form{
+max-width:500px;
+margin:auto;
