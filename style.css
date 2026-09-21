@@ -1,187 +1,312 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+/* ==========================================================================
+   ROYAL MAHAL WEDDING INVITATION - PREMIUM STYLESHEET
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --gold-primary: #d4af37;
+  --gold-light: #f7d070;
+  --gold-dark: #aa820a;
+  --bg-dark: #0d0205;
+  --card-bg: rgba(60, 5, 18, 0.85);
+  --card-border: rgba(212, 175, 55, 0.4);
+  --text-light: #fce4ec;
+  --royal-red: #4a0011;
 }
 
-html{
-scroll-behavior:smooth;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-font-family:'Poppins',sans-serif;
-background:#0f0f0f;
-color:#fff;
-overflow-x:hidden;
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  overflow-x: hidden;
+  text-align: center;
+  min-height: 100vh;
 }
 
-#loader{
-position:fixed;
-width:100%;
-height:100%;
-background:#000;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:2rem;
-z-index:9999;
-color:#D4AF37;
-font-family:'Cinzel',serif;
-animation:fadeOut 3s forwards;
+/* Floating Gold Sparks */
+.spark {
+  position: fixed;
+  top: -10px;
+  width: 6px;
+  height: 6px;
+  background: var(--gold-light);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--gold-light);
+  animation: sparkFall linear infinite;
+  z-index: 10;
+  pointer-events: none;
 }
 
-@keyframes fadeOut{
-0%{opacity:1;}
-80%{opacity:1;}
-100%{opacity:0;visibility:hidden;}
+@keyframes sparkFall {
+  0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
 }
 
-.hero{
-height:100vh;
-background:url("images/bg.jpg") center/cover no-repeat;
-position:relative;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
+/* Palace Gate (Dvar) Overlay */
+#palace-gate {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-dark);
+  overflow: hidden;
 }
 
-.overlay{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.6);
+.door {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, #4a0011 0%, #1a0208 100%);
+  border: 4px solid var(--gold-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1);
+  box-shadow: inset 0 0 50px rgba(212, 175, 55, 0.3);
 }
 
-.hero-content{
-position:relative;
-z-index:2;
-padding:20px;
+.door-left {
+  left: 0;
+  border-right: 2px solid var(--gold-primary);
 }
 
-.hero h1{
-font-size:4rem;
-font-family:'Cinzel',serif;
-color:#D4AF37;
-margin-bottom:20px;
+.door-right {
+  right: 0;
+  border-left: 2px solid var(--gold-primary);
 }
 
-.hero h3{
-font-size:2rem;
-margin-bottom:15px;
+.gate-badge {
+  position: absolute;
+  z-index: 1000;
+  background: radial-gradient(circle, #800020, #4a0011);
+  border: 3px solid var(--gold-primary);
+  border-radius: 50%;
+  width: 270px;
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+  cursor: pointer;
+  animation: pulse 2.5s infinite ease-in-out;
+  padding: 15px;
 }
 
-.hero p{
-font-size:1.2rem;
-line-height:1.8;
-margin-bottom:30px;
+@keyframes pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(212, 175, 55, 0.5); }
+  50% { transform: scale(1.05); box-shadow: 0 0 55px rgba(212, 175, 55, 0.85); }
 }
 
-.btn{
-display:inline-block;
-padding:15px 35px;
-background:#D4AF37;
-color:#000;
-text-decoration:none;
-border-radius:40px;
-font-weight:bold;
-transition:.4s;
+.gate-badge h2 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 20px;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-.btn:hover{
-background:#fff;
-transform:scale(1.08);
+.gate-badge p {
+  font-family: 'Great Vibes', cursive;
+  font-size: 30px;
+  color: #fff;
+  margin-top: 2px;
 }
 
-section{
-padding:80px 10%;
-text-align:center;
+.gate-badge span {
+  font-size: 11px;
+  color: var(--gold-light);
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
-section h2{
-font-size:2.5rem;
-margin-bottom:40px;
-color:#D4AF37;
-font-family:'Cinzel',serif;
+.open-left { transform: translateX(-100%); }
+.open-right { transform: translateX(100%); }
+
+/* Main Container */
+.mahal-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  display: none;
+  opacity: 0;
+  animation: fadeIn 1.5s forwards 0.8s ease-in-out;
+  position: relative;
+  z-index: 2;
 }
 
-#timer{
-display:flex;
-justify-content:center;
-gap:25px;
-flex-wrap:wrap;
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
 
-#timer div{
-background:#1c1c1c;
-padding:25px;
-border-radius:15px;
-width:120px;
-box-shadow:0 0 20px rgba(212,175,55,.3);
+.royal-header {
+  color: var(--gold-primary);
+  font-size: 18px;
+  letter-spacing: 2px;
 }
 
-#timer span{
-font-size:2.5rem;
-color:#D4AF37;
-font-weight:bold;
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 75px;
+  color: var(--gold-light);
+  margin: 15px 0;
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
 }
 
-.timeline{
-background:#111;
+/* Countdown Card */
+.countdown-card {
+  background: rgba(74, 0, 17, 0.6);
+  border: 1px solid var(--gold-primary);
+  backdrop-filter: blur(8px);
+  padding: 20px 10px;
+  border-radius: 20px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.event{
-max-width:700px;
-margin:25px auto;
-padding:25px;
-background:#1a1a1a;
-border-left:5px solid #D4AF37;
-border-radius:12px;
-transition:.4s;
+.count-box {
+  flex: 1;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #e0c38c;
 }
 
-.event:hover{
-transform:translateY(-8px);
+.count-box span {
+  font-size: 32px;
+  font-weight: 600;
+  display: block;
+  color: var(--gold-light);
 }
 
-.gallery-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+/* Section Title & Cards */
+.room-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 24px;
+  color: var(--gold-primary);
+  margin: 50px 0 25px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  padding-bottom: 10px;
 }
 
-.gallery-grid img{
-width:100%;
-height:300px;
-object-fit:cover;
-border-radius:15px;
-transition:.4s;
+.room-card {
+  background: linear-gradient(145deg, rgba(60, 5, 18, 0.9), rgba(30, 2, 9, 0.9));
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 25px 20px;
+  margin-bottom: 25px;
+  text-align: left;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.gallery-grid img:hover{
-transform:scale(1.05);
+.room-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-primary);
 }
 
-.family-box{
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
+.room-number {
+  font-size: 11px;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  display: block;
 }
 
-.family-box div{
-background:#1a1a1a;
-padding:30px;
-border-radius:15px;
-width:320px;
+.room-card h4 {
+  color: var(--gold-light);
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 6px;
 }
 
-.venue{
-background:#151515;
+.room-card p {
+  font-size: 16px;
+  color: #fbe3e8;
 }
 
-.rsvp form{
-max-width:500px;
-margin:auto;
+/* Action Buttons */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.btn {
+  padding: 15px 35px;
+  background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+  border: none;
+  color: #1a050b;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+  transition: transform 0.2s ease, background 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, var(--gold-light) 0%, #c49a18 100%);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--gold-light);
+  border: 1.5px solid var(--gold-primary);
+  box-shadow: none;
+}
+
+.btn-secondary:hover {
+  background: rgba(212, 175, 55, 0.15);
+}
+
+#audio-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--royal-red);
+  color: var(--gold-primary);
+  border: 1px solid var(--gold-primary);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  cursor: pointer;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+footer {
+  margin-top: 60px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 48px;
+  color: var(--gold-light);
+}
