@@ -1,48 +1,68 @@
-// Loader
-window.onload = function () {
-  const loader = document.getElementById("loader");
-  if (loader) {
-    loader.style.display = "none";
+/* ==========================================================================
+   ROYAL MAHAL WEDDING INVITATION - INTERACTIVE LOGIC
+   ========================================================================== */
+
+var music = document.getElementById("bg-music");
+var audioBtn = document.getElementById("audio-control");
+var isPlaying = false;
+
+function openPalaceGate() {
+  document.getElementById("door-l").classList.add("open-left");
+  document.getElementById("door-r").classList.add("open-right");
+  document.getElementById("badge").style.display = "none";
+
+  setTimeout(function() {
+    document.getElementById("palace-gate").style.display = "none";
+    document.getElementById("main-mahal").style.display = "block";
+    audioBtn.style.display = "flex";
+  }, 1200);
+
+  // Play audio on opening gate
+  music.play().then(function() {
+    isPlaying = true;
+    audioBtn.innerText = "🎵";
+  }).catch(function(e) {
+    isPlaying = false;
+    audioBtn.innerText = "🔇";
+  });
+}
+
+function toggleAudio() {
+  if (isPlaying) {
+    music.pause();
+    audioBtn.innerText = "🔇";
+  } else {
+    music.play();
+    audioBtn.innerText = "🎵";
   }
-};
+  isPlaying = !isPlaying;
+}
 
-// Countdown Timer
-const weddingDate = new Date("December 2, 2026 18:00:00").getTime();
+// Countdown Timer Setup
+var weddingDate = new Date("December 2, 2026 18:00:00").getTime();
 
-const timer = setInterval(function () {
-  const now = new Date().getTime();
-  const distance = weddingDate - now;
+var countdownTimer = setInterval(function() {
+  var now = new Date().getTime();
+  var gap = weddingDate - now;
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  if (document.getElementById("days")) {
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
+  if (gap <= 0) {
+    clearInterval(countdownTimer);
+    document.getElementById("countdown-wrapper").innerHTML = "<h3 style='color:#f7d070; width:100%;'>The Royal Day is Here! 🎉</h3>";
+    return;
   }
 
-  if (distance < 0) {
-    clearInterval(timer);
-    document.getElementById("timer").innerHTML = "<h2>Wedding Day is Here! ❤️</h2>";
-  }
+  document.getElementById("days").innerText = Math.floor(gap / (1000 * 60 * 60 * 24));
+  document.getElementById("hours").innerText = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  document.getElementById("minutes").innerText = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
+  document.getElementById("seconds").innerText = Math.floor((gap % (1000 * 60)) / 1000);
 }, 1000);
 
-// Music Button
-const music = document.getElementById("music");
-const musicBtn = document.getElementById("musicBtn");
-
-if (musicBtn && music) {
-  musicBtn.onclick = function () {
-    if (music.paused) {
-      music.play();
-      musicBtn.innerHTML = "🔊";
-    } else {
-      music.pause();
-      musicBtn.innerHTML = "🎵";
-    }
-  };
+// Generate Golden Sparks
+for (let i = 0; i < 25; i++) {
+  let spark = document.createElement("div");
+  spark.className = "spark";
+  spark.style.left = Math.random() * 100 + "vw";
+  spark.style.animationDuration = (4 + Math.random() * 5) + "s";
+  spark.style.animationDelay = Math.random() * 5 + "s";
+  document.body.appendChild(spark);
 }
