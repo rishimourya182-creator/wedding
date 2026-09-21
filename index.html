@@ -1,225 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Wedding Invitation</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khushboo ❤️ Mayank | Royal Wedding Invitation</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div id="loader">
-<h1>Wedding Invitation</h1>
-</div>
+  <!-- Floating Music Toggle Button -->
+  <button id="audio-control" onclick="toggleAudio()" title="Toggle Music">🎵</button>
+  
+  <!-- Direct Audio Link from Google Drive -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="https://docs.google.com/uc?export=download&id=19dEaR9R3_ZUFzTsNRz_kl4MeURrBhvG2" type="audio/mpeg">
+  </audio>
+
+  <!-- Palace Gate Overlay (Mahal Dvar) -->
+  <div id="palace-gate">
+    <div class="door door-left" id="door-l"></div>
+    <div class="door door-right" id="door-r"></div>
+    
+    <div class="gate-badge" id="badge" onclick="openPalaceGate()">
+      <h2>Wedding</h2>
+      <p>Invitation</p>
+      <span>Tap To Enter Mahal 🏰</span>
+    </div>
+  </div>
+
+  <!-- Inside Palace Container -->
+  <div class="mahal-container" id="main-mahal">
+
+    <p class="royal-header">॥ श्री गणेशाय नमः ॥</p>
+    <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 14px; margin-top: 10px; color: #d4af37;">Royal Wedding Celebration</p>
+
+    <h1>Khushboo <br>❤️<br> Mayank</h1>
+
+    <!-- Countdown Timer -->
+    <div class="countdown-card" id="countdown-wrapper">
+      <div class="count-box"><span id="days">0</span>Days</div>
+      <div class="count-box"><span id="hours">0</span>Hours</div>
+      <div class="count-box"><span id="minutes">0</span>Minutes</div>
+      <div class="count-box"><span id="seconds">0</span>Seconds</div>
+    </div>
+
+    <!-- Palace Rooms Section -->
+    <div class="section">
+      <h2 class="room-title">Royal Ceremony Rooms</h2>
+
+      <div class="room-card">
+        <span class="room-number">Kaksh 1 • Tilak Mandap</span>
+        <h4>26 November</h4>
+        <p>Tilak Ceremony</p>
+      </div>
+
+      <div class="room-card">
+        <span class="room-number">Kaksh 2 • Pooja Aangan</span>
+        <h4>28 November</h4>
+        <p>Ganesh Pujan</p>
+      </div>
+
+      <div class="room-card">
+        <span class="room-number">Kaksh 3 • Rang Mandap</span>
+        <h4>29 November</h4>
+        <p>Haldi & Photoshoot</p>
+      </div>
+
+      <div class="room-card">
+        <span class="room-number">Kaksh 4 • Mandap Aangan</span>
+        <h4>30 November Morning</h4>
+        <p>Mandap & Mayan Pujan</p>
+      </div>
+
+      <div class="room-card">
+        <span class="room-number">Kaksh 5 • Shringar Kaksh</span>
+        <h4>30 November Evening</h4>
+        <p>Mehndi Shoot</p>
+      </div>
+
+      <div class="room-card">
+        <span class="room-number">Kaksh 6 • Rasm Kaksh</span>
+        <h4>1 December</h4>
+        <p>Mamera Ceremony</p>
+      </div>
+
+      <div class="room-card">
+        <span class="room-number">Kaksh 7 • Vivah Mandap</span>
+        <h4>2 December Evening</h4>
+        <p>Grand Wedding Party & Barat</p>
+      </div>
+    </div>
+
+    <!-- Venue Location Room -->
+    <div class="section">
+      <h2 class="room-title">Venue Location</h2>
+      <div class="room-card" style="text-align: center;">
+        <div style="font-size: 45px; margin-bottom: 10px;">📍</div>
+        <h4>Grand Wedding Palace</h4>
+        <p style="margin-bottom: 20px;">Tap below to view exact navigation route on Google Maps</p>
+        
+        <a href="https://maps.app.goo.gl/n3AP7sBnNFPf86gx9" target="_blank" class="btn btn-secondary">
+          🗺️ Open Venue in Google Maps
+        </a>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions">
+      <a href="https://wa.me/918818909508?text=Hello!%20I%20will%20be%20attending%20the%20royal%20wedding." target="_blank" class="btn">
+        💬 RSVP on WhatsApp
+      </a>
 
-<header class="hero">
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Khushboo+%26+Mayank+Royal+Wedding&dates=20261202T180000/20261203T020000" target="_blank" class="btn btn-secondary">
+        📅 Set Google Calendar Notification
+      </a>
+    </div>
 
-<div class="overlay"></div>
+    <footer>
+      See You At The Palace ❤️
+    </footer>
 
-<div class="hero-content">
+  </div>
 
-<h3>💍 You're Invited 💍</h3>
-
-<h1>Wedding Celebration</h1>
-
-<p>Together with our families,<br>
-we warmly invite you to celebrate our wedding.</p>
-
-<a href="#timeline" class="btn">Open Invitation</a>
-
-</div>
-
-</header>
-
-<section class="countdown">
-
-<h2>Countdown to Wedding</h2>
-
-<div id="timer">
-
-<div>
-<span id="days">00</span>
-<p>Days</p>
-</div>
-
-<div>
-<span id="hours">00</span>
-<p>Hours</p>
-</div>
-
-<div>
-<span id="minutes">00</span>
-<p>Minutes</p>
-</div>
-
-<div>
-<span id="seconds">00</span>
-<p>Seconds</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="timeline" class="timeline">
-
-<h2>Wedding Events</h2>
-
-<div class="event">
-<h3>26 November</h3>
-<p>🎉 Tilak Ceremony</p>
-</div>
-
-<div class="event">
-<h3>28 November</h3>
-<p>🪔 Ganesh Pujan</p>
-</div>
-
-<div class="event">
-<h3>29 November</h3>
-<p>💛 Haldi Ceremony & Photoshoot</p>
-</div>
-
-<div class="event">
-<h3>30 November (Morning)</h3>
-<p>🔥 Mandap & Mayan Pujan</p>
-</div>
-
-<div class="event">
-<h3>30 November (Evening)</h3>
-<p>🌼 Mehndi Ceremony & Photoshoot</p>
-</div>
-
-<div class="event">
-<h3>1 December</h3>
-<p>👑 Mamera Ceremony</p>
-</div>
-
-<div class="event">
-<h3>2 December</h3>
-<p>💍 Baraat & Wedding Reception</p>
-</div>
-
-</section>
-
-<section class="gallery">
-
-<h2>Gallery</h2>
-
-<div class="gallery-grid">
-
-<img src="images/1.jpg">
-
-<img src="images/2.jpg">
-
-<img src="images/3.jpg">
-
-<img src="images/4.jpg">
-
-<img src="images/5.jpg">
-
-<img src="images/6.jpg">
-
-</div>
-
-</section>
-
-<section class="family">
-
-<h2>Our Families</h2>
-
-<div class="family-box">
-
-<div>
-
-<h3>Bride Side</h3>
-
-<p>Add Bride Family Details Here</p>
-
-</div>
-
-<div>
-
-<h3>Groom Side</h3>
-
-<p>Add Groom Family Details Here</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="venue">
-
-<h2>Venue</h2>
-
-<h3>Wedding Venue Name</h3>
-
-<p>Complete Address Here</p>
-
-<a href="#" class="btn">Get Directions</a>
-
-</section>
-
-<section class="rsvp">
-
-<h2>RSVP</h2>
-
-<form>
-
-<input type="text" placeholder="Your Name">
-
-<input type="tel" placeholder="Phone Number">
-
-<input type="number" placeholder="Guests">
-
-<select>
-
-<option>Will Attend?</option>
-
-<option>Yes</option>
-
-<option>No</option>
-
-</select>
-
-<button type="submit">Submit</button>
-
-</form>
-
-</section>
-
-<footer>
-
-<p>Made with ❤️ for Our Wedding</p>
-
-</footer>
-
-<a href="#" class="top-btn">
-<i class="fas fa-arrow-up"></i>
-</a>
-
-<audio id="music" loop>
-<source src="music/wedding.mp3" type="audio/mpeg">
-</audio>
-
-<button id="musicBtn">
-<i class="fas fa-music"></i>
-</button>
-
-<script src="script.js"></script>
-
+  <script src="app.js"></script>
 </body>
 </html>
